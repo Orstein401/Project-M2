@@ -436,13 +436,13 @@ MonoBehaviour:
       spd: 100
       aim: 60
       eva: 80
-      crit: 40
+      crit: 10
     resistence: 4
     weakness: 1
     weapon:
       name: AmmazzaDraghi
-      dmg_type: 1
-      element: 4
+      dmg_type: 0
+      element: 2
       bonuStat:
         atk: 300
         def: 30
@@ -455,19 +455,19 @@ MonoBehaviour:
     name: Smohg
     hp: 3600
     baseStat:
-      atk: 350
-      def: 1000000
+      atk: 300
+      def: 100
       res: 100
-      spd: 0
+      spd: 50
       aim: 67
-      eva: 0
-      crit: 30
+      eva: 80
+      crit: 10
     resistence: 4
-    weakness: 0
+    weakness: 2
     weapon:
       name: martelo
       dmg_type: 0
-      element: 4
+      element: 1
       bonuStat:
         atk: 350
         def: 40
