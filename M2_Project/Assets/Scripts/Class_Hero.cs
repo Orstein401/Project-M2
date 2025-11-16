@@ -42,6 +42,8 @@ public class Hero
         get => weakness;
         set => weakness = value;
     }
+
+    
     public Weapon Weapon
     {
         get => weapon;

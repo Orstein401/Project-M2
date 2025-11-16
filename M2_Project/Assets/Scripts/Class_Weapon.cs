@@ -11,13 +11,14 @@ public enum DamageType
 
 public class Weapon
 {
-   
+
 
     [SerializeField] private string name;
     [SerializeField] private DamageType dmg_type;
     [SerializeField] private Element element;
     [SerializeField] private Stat bonuStat;
-    
+
+
 
     public string Name
     {
@@ -41,10 +42,12 @@ public class Weapon
         set => bonuStat = value;
     }
 
-    public Weapon(string name, DamageType Dmg_Type, Element element, Stat BonuStat)
+   
+
+    public Weapon(string name, DamageType Dmg_Type, Element element, Stat BonuStat, int range)
     {
         this.name = name;
-        dmg_type= Dmg_Type;
+        dmg_type = Dmg_Type;
         this.element = element;
         bonuStat = BonuStat;
     }
