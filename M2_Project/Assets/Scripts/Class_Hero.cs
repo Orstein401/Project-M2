@@ -8,15 +8,17 @@ public class Hero
     [SerializeField] private Stat baseStat;
     [SerializeField] private Element resistence;
     [SerializeField] private Element weakness;
+    [SerializeField] private Element affinity; // indica con quale elemento è in sintonia l'eroe
     [SerializeField] private Weapon weapon;
 
-    public Hero(string name, int hp, Stat baseStat, Element resistence, Element weakness, Weapon weapon)
+    public Hero(string name, int hp, Stat baseStat, Element resistence, Element weakness,Element affinty, Weapon weapon)
     {
         this.name = name;
         this.hp = hp;
         this.baseStat = baseStat;
         this.resistence = resistence;
         this.weakness = weakness;
+        this.affinity = affinty;
         this.weapon = weapon;
 
     }
@@ -40,10 +42,15 @@ public class Hero
     public Element Weakness
     {
         get => weakness;
-        set => weakness = value;
+        set => weakness = value; 
+        
     }
 
-    
+    public Element Affinity
+    {
+        get => affinity;
+        set => affinity = value;
+    }
     public Weapon Weapon
     {
         get => weapon;

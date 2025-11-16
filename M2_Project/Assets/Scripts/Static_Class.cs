@@ -32,9 +32,16 @@ public static class GameFormulas
         }
     }
 
+    //qui controllo se c'è affinita con l'arma
+    //fatto una funzione a parte per un possibile futuro, dove modifico il metodo di controllo o altre aggiunte
+    static bool AffinityPower(Hero attacker)
+    {
+        return attacker.Affinity == attacker.Weapon.Element;
+    }
+
     public static bool HasHit(Stat attacker, Stat defender)
     {
-        int chanceHit = defender.eva  - attacker.aim;
+        int chanceHit = defender.eva - attacker.aim;
         int hitPoint = Random.Range(0, 100); // sta per punteggio hit, per indicare quanti punti servono per poter colpire
         if (chanceHit >= hitPoint)
         {
@@ -66,8 +73,8 @@ public static class GameFormulas
 
     public static int CalculateDamage(Hero attacker, Hero defender)
     {
-        Stat SommaStat1= Stat.Sum(attacker.BaseStat, attacker.Weapon.BonusStat);
-        Stat SommaStat2= Stat.Sum(defender.BaseStat, defender.Weapon.BonusStat);
+        Stat SommaStat1 = Stat.Sum(attacker.BaseStat, attacker.Weapon.BonusStat);
+        Stat SommaStat2 = Stat.Sum(defender.BaseStat, defender.Weapon.BonusStat);
 
 
         int difesa;
@@ -84,12 +91,20 @@ public static class GameFormulas
         float damage = SommaStat1.atk - difesa;
 
         damage *= EvaluateElementalModifier(attacker.Weapon.Element, defender);
-        
+
         if (HasCrit(SommaStat1.crit))
         {
             damage *= 2;
         }
-       
+
+        // qui impiego effettivamente la funzione e in tal caso sia vera c'è un aumento del 20% per non essere un power up esagerato
+        if (AffinityPower(attacker))
+        {
+            Debug.Log("affinità rilevata, attacco potenziato");
+            damage *= 1.2f;
+        }
+
+
         if (damage < 0)
         {
             return 0;
